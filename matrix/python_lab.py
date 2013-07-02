@@ -48,32 +48,32 @@ cartesian_product = [[x,y] for x in ['A','B','C'] for y in [1,2,3]]
 
 ## Task 14
 S = {-4, -2, 1, 2, 5, 0}
-zero_sum_list = [ ... ] 
+zero_sum_list = [(x,y,z) for x in S for y in S for z in S if x+y+z==0 ]
 
 ## Task 15
-exclude_zero_list = [ ... ]
+exclude_zero_list = [(x,y,z) for x in S for y in S for z in S if x+y+z==0 and (x,y,z)!=(0,0,0)]
 
 ## Task 16
-first_of_tuples_list = ...
+first_of_tuples_list = [(x,y,z) for x in S for y in S for z in S if x+y+z==0 and (x,y,z)!=(0,0,0)][0]
 
 ## Task 17
-L1 = [...] # <-- want len(L1) != len(list(set(L1)))
-L2 = [...] # <-- same len(L2) == len(list(set(L2))) but L2 != list(set(L2))
+L1 = [0, 0, 1, 2, 3] # <-- want len(L1) != len(list(set(L1)))
+L2 = [4, 3, 2, 1, 0] # <-- same len(L2) == len(list(set(L2))) but L2 != list(set(L2))
 
 ## Task 18
-odd_num_list_range = {...}
+odd_num_list_range = [x for x in range(100) if x % 2 == 1]
 
 ## Task 19
 L = ['A','B','C','D','E']
-range_and_zip = ...
+range_and_zip = list(zip(range(5), L))
 
 ## Task 20
-list_sum_zip = [...]
+list_sum_zip = [sum(x) for x in zip([10, 25, 40], [1, 15, 20])]
 
 ## Task 21
 dlist = [{'James':'Sean', 'director':'Terence'}, {'James':'Roger', 'director':'Lewis'}, {'James':'Pierce', 'director':'Roger'}]
 k = 'James'
-value_list = [...]
+value_list = [d[k] for d in dlist if k in d]
 
 ## Task 22
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
