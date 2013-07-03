@@ -2,7 +2,7 @@
 minutes_in_week = 7 * 24 * 60
 
 ## Task 2
-remainder_without_mod = 2304811 // 47
+remainder_without_mod = 2304811 - 47 * (2304811 // 47)
 
 ## Task 3
 divisible_by_3 = ((673 + 909) % 3 == 0)
@@ -61,7 +61,13 @@ L1 = [0, 0, 1, 2, 3] # <-- want len(L1) != len(list(set(L1)))
 L2 = [4, 3, 2, 1, 0] # <-- same len(L2) == len(list(set(L2))) but L2 != list(set(L2))
 
 ## Task 18
-odd_num_list_range = [x for x in range(100) if x % 2 == 1]
+odd_num_list_range = set(x for x in range(100) if x % 2 != 0)
+#odd_num_list_range = [x for x in range(100) if x % 2 == 1]
+#odd_num_list_range = [x for x in range(1, 100, 2)]
+#odd_num_list_range = list(range(1, 100, 2))
+#odd_num_list_range = list(range(100))[1::2]
+#odd_num_list_range = list(range(100))[1::2]
+#odd_num_list_range = [x for x in list(range(100)) if x % 2 == 1]
 
 ## Task 19
 L = ['A','B','C','D','E']
@@ -78,36 +84,39 @@ value_list = [d[k] for d in dlist if k in d]
 ## Task 22
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
 k = 'Bilbo'
-value_list_modified_1 = [...] # <-- Use the same expression here
+value_list_modified_1 = [d[k] if k in d else 'NOT PRESENT' for d in dlist]
 k = 'Frodo'
-value_list_modified_2 = [...] # <-- as you do here
+value_list_modified_2 = [d[k] if k in d else 'NOT PRESENT' for d in dlist]
 
 ## Task 23
-square_dict = {...}
+square_dict =  {k:k*k for k in range(100)}
 
 ## Task 24
 D = {'red','white','blue'}
-identity_dict = {...}
+identity_dict =  {d:d for d in D}
 
 ## Task 25
 base = 10
 digits = set(range(10))
-representation_dict = {...}
+representation_dict = {x*base**2 + y*base**1 + z : [x, y, z] for x in digits for y in digits for z in digits}
 
 ## Task 26
 d = {0:1000.0, 1:1200.50, 2:990}
 names = ['Larry', 'Curly', 'Moe']
-listdict2dict = { ... }
+#listdict2dict = {L[x]:d[x] for x in range(len(L)) if x in d.keys()} #pdf version
+listdict2dict = {names[x]:d[x] for x in range(len(names)) if x in d.keys()} #lab version
+
 
 ## Task 27
-def nextInts(L): return [ ... ]
+def nextInts(L): return [x+1 for x in L]
 
 ## Task 28
-def cubes(L): return [ ... ] 
+def cubes(L): return [x**3 for x in L]
 
 ## Task 29
-def dict2list(dct, keylist): return [ ... ]
+def dict2list(dct, keylist): return [dct[k] for k in keylist if k in dct.keys()]
+
 
 ## Task 30 
-def list2dict(L, keylist): return { ... } 
-
+#def list2dict(L, keylist): return dict(zip(keylist, L)) #without comprehension
+def list2dict(L, keylist): return {x[0]:x[1] for x in list(zip(keylist, L))} #with comprehension
