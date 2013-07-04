@@ -23,9 +23,35 @@ def makeInverseIndex(strlist):
 
     return index
 
-D =['a x', 'b y a', 'c z b']
-print(makeInverseIndex(D))
+
+def orSearch(inverseIndex, query):
+    """
+    Input: an inverse index, as created by makeInverseIndex, and a list of words to query
+    Output: the set of document ids that contain _any_ of the specified words
+    """
+    return set.union(*[inverseIndex[w] for w in query])
+
+
+## Task 6
+def andSearch(inverseIndex, query):
+    """
+    Input: an inverse index, as created by makeInverseIndex, and a list of words to query
+    Output: the set of all document ids that contain _all_ of the specified words
+    """
+    return set.intersection(*[inverseIndex[w] for w in query])
 
 with open('stories_small.txt') as f:
     D = f.readlines()
-    print(makeInverseIndex(D))
+
+ii = makeInverseIndex(D)
+print('makeInverseIndex\n', ii)
+
+ir = orSearch(ii, ['need', 'needed'])
+print('orSearch\n', ir)
+
+ir = andSearch(ii, ['need', 'needed'])
+print('andSearch\n', ir)
+
+ir = orSearch(ii, ['localizes', 'dog'])
+print('orSearch\n', ir)
+
