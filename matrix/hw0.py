@@ -24,17 +24,17 @@ def myFunctionComposition(f, g):
 ## Problem 4
 # Please only enter your numerical solution.
 
-complex_addition_a = ... 
-complex_addition_b = ...
-complex_addition_c = ...
-complex_addition_d = ...
+complex_addition_a =  (5+3j) #correct
+complex_addition_b = (0+1j) #incorrect
+complex_addition_c = (-1+0.001j) #incorrect
+complex_addition_d = (0.001+9j) #correct
 
-
+#1 + 0 + 0 + 1
 
 ## Problem 5
-GF2_sum_1 = ...
-GF2_sum_2 = ...
-GF2_sum_3 = ...
+GF2_sum_1 = 1 #correct
+GF2_sum_2 = 0 #1 = incorrect
+GF2_sum_3 = 0 #correct
 
 
 ## Problem 6
