@@ -47,24 +47,24 @@ print(p3_vector_sum_2)
 #   a (1100000), b (0110000), and c (0011000).
 # Leave an empty set if it cannot be expressed in terms of the other vectors.
 
-u_0010010 = ...
-u_0100010 = ...
+u_0010010 = {'c', 'd', 'e'}
+u_0100010 = {'b', 'c', 'd', 'e'}
 
 
 
 ## Problem 5
 # Use the same format as the previous problem
 
-v_0010010 = ...
-v_0100010 = ...
+v_0010010 = {'c', 'd'}
+v_0100010 = set()
 
 
 
 ## Problem 6
-uv_a = ...
-uv_b = ...
-uv_c = ...
-uv_d = ...
+uv_a = 5
+uv_b = 6
+uv_c = 16
+uv_d = -1
 
 
 
