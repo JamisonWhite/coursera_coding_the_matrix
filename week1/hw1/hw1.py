@@ -7,27 +7,38 @@ from GF2 import one
 ## Problem 1
 p1_u = [ 0, 4]
 p1_v = [-1, 3]
-p1_v_plus_u = [...]
-p1_v_minus_u = [...]
-p1_three_v_minus_two_u = [...]
+p1_v_plus_u = [u + v for u, v in zip(p1_u, p1_v)]
+p1_v_minus_u = [v - u for u, v in zip(p1_u, p1_v)]
+p1_three_v_minus_two_u = [3*v - 2*u for u, v in zip(p1_u, p1_v)]
 
+print('Problem 1')
+print(p1_v_plus_u)
+print(p1_v_minus_u)
+print(p1_three_v_minus_two_u)
 
 
 ## Problem 2
 p2_u = [-1,  1, 1]
 p2_v = [ 2, -1, 5]
-p2_v_plus_u = [...]
-p2_v_minus_u = [...]
-p2_two_v_minus_u = [...]
-p2_v_plus_two_u = [...]
+p2_v_plus_u = [1, 0, 6]
+p2_v_minus_u = [3, -2, 4]
+p2_two_v_minus_u = [5, -3, 9]
+p2_v_plus_two_u = [0, 1, 7]
 
-
+print('Problem 2')
+print(p2_v_plus_u)
+print(p2_v_minus_u)
+print(p2_two_v_minus_u)
+print(p2_v_plus_two_u)
 
 ## Problem 3
 # Write your answer using GF2's one instead of the number 1
-p3_vector_sum_1 = [...]
-p3_vector_sum_2 = [...]
+p3_vector_sum_1 = [one, 0, 0]
+p3_vector_sum_2 = [0, one, one]
 
+print('Problem 3')
+print(p3_vector_sum_1)
+print(p3_vector_sum_2)
 
 
 ## Problem 4

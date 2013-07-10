@@ -114,7 +114,7 @@ class OutputAccepter(doctest.OutputChecker):
     def check_output(self, want, got, optionflags):
         return True
 
-def submit(parts_string, login, password):   
+def submit(parts_string, login, password):
     print('= Coding the Matrix Homework and Lab Submission')
     
     if not login:
@@ -162,12 +162,12 @@ def submit(parts_string, login, password):
 
 
 def login_prompt():
-    return input('Login email address: ')
+    return 'robertjamisonwhite@gmail.com' #input('Login email address: ')
 
 
 def password_prompt():
-    return input("One-time password from the assignment page (NOT your own account's password): ")
-
+    return 'MqUY3Jmbz8' # input("One-time password from the assignment page (NOT your own account's password): ")
+2
 
 def parts_prompt():
     print('These are the assignment parts that you can submit:')
