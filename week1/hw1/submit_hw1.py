@@ -167,7 +167,7 @@ def login_prompt():
 
 def password_prompt():
     return 'MqUY3Jmbz8' # input("One-time password from the assignment page (NOT your own account's password): ")
-2
+
 
 def parts_prompt():
     print('These are the assignment parts that you can submit:')
