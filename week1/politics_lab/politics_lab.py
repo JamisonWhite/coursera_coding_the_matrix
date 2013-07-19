@@ -1,3 +1,5 @@
+import os
+os.chdir("C:\\Users\\jamie\\Documents\\GitHub\\coursera_coding_the_matrix\\week1\\politics_lab")
 voting_data = list(open("voting_record_dump109.txt"))
 dems = [col[0] for col in [line.split() for line in voting_data] if col[1] == 'D']
 
@@ -30,6 +32,7 @@ def create_voting_dict():
 
     The lists for each senator should preserve the order listed in voting data. 
     """
+	print ("creating dictionary")
     votes = {}
     for line in list(open("voting_record_dump109.txt")):
         cols = line.split()
@@ -40,7 +43,8 @@ def create_voting_dict():
 
 #create voting dict for others
 voting_dict = create_voting_dict()
-print ("Task 1 create a voiting dict")
+print ("Task 1 create a voting dict")
+
 # print(voting_dict)
 
 ## Task 2
