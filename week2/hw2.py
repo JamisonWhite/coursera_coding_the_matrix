@@ -2,6 +2,7 @@
 # Please fill out this stencil and submit using the provided submission script.
 
 from vec import Vec
+from GF2 import one
 
 
 
@@ -93,6 +94,12 @@ def scale_vecs(vecdict):
 ## Problem 3
 def GF2_span(D, L):
     '''
+    Constructing the Span of Given Vectors OverGF(2)
+    Problem 3:Write a procedureGF2_spanwith the following spec:
+     input: a set D of labels and a list L of vectors ove rGF(2) with label-set D
+     output:the list of all linear combinations of the vectors in L
+    (Hint: use a loop (or recursion) and a comprehension. Be sure to test your procedure on examples where L
+    is an empty list.)
     >>> from GF2 import one
     >>> D = {'a', 'b', 'c'}
     >>> L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
@@ -107,21 +114,46 @@ def GF2_span(D, L):
     >>> Vec(D, {x:one for x in D}) in GF2_span(D, L)
     True
     '''
-    pass
+    vectors = []
+    for l in L:
+        v = Vec(D, {}) * one
+        vectors.append(v)
 
-from GF2 import one
+    return vectors
+# for a in (0,1):
+#     for b in (0,1):
+#         for c in (0,1):
+#             y = [a, b, c]
+
+
+
+
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
-len(GF2_span(D, L))
-#4
-Vec(D, {}) in GF2_span(D, L)
-#True
-Vec(D, {'b': one}) in GF2_span(D, L)
-#True
-Vec(D, {'a':one, 'c':one}) in GF2_span(D, L)
-#True
-Vec(D, {x:one for x in D}) in GF2_span(D, L)
-#True
+
+print('z...')
+z = [[a, b, c] for a in (0,1) for b in (0,1) for c in (0,1)]
+print(z)
+
+print('testing...')
+x = (0,1)
+y = 3
+z = [[a, b, c] for a in x for b in x for c in x ]
+print(z)
+
+print('Starting Problem 3\n D = ', D, '\n L = ', L)
+a = len(GF2_span(D, L))
+print(a) #4
+
+
+b = Vec(D, {}) in GF2_span(D, L)
+print(b) #True
+c = Vec(D, {'b': one}) in GF2_span(D, L)
+print(c) #True
+d = Vec(D, {'a':one, 'c':one}) in GF2_span(D, L)
+print(d) #True
+e = Vec(D, {x:one for x in D}) in GF2_span(D, L)
+print(e) #True
 
 ## Problem 4
 # Answer with a boolean, please.
