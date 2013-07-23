@@ -131,17 +131,24 @@ def GF2_span(D, L):
     >>> Vec(D, {x:one for x in D}) in GF2_span(D, L)
     True
     '''
-    permutations = [[a, b] for a in (0,one) for b in (0,one)]
-    # print('permutations: ', permutations)
-
-    span = []
-    d = list(D)
-    for p in permutations:
-        x = sum([v for v in L for c in p if c == one])
-        print('perm = ', p, 'x = ', x)
-        span.append(p)
-
-    return span
+    if len(L)==0:
+        return [ Vec(D,{}) ]
+    sub = GF2_span(D,L[1:])
+    subsub = [ item+L[0] for item in sub ]
+    return sub+subsub
+    #
+    #
+    # permutations = [[a, b] for a in (0,one) for b in (0,one)]
+    # # print('permutations: ', permutations)
+    #
+    # span = []
+    # d = list(D)
+    # for p in permutations:
+    #     x = sum([v for v in L for c in p if c == one])
+    #     print('perm = ', p, 'x = ', x)
+    #     span.append(p)
+    #
+    # return span
 
     # # print(p)
     # f = {d[i]:p[i] for i in range(3)}
@@ -191,18 +198,17 @@ print('d = ', d) #True
 e = Vec(D, {x:one for x in D}) in GF2_span(D, L)
 print('e = ', e) #True
 
-exit()
 ## Problem 4
 # Answer with a boolean, please.
 
-is_it_a_vector_space_1 = ...
-is_it_a_vector_space_2 = ...
+is_it_a_vector_space_1 = True
+is_it_a_vector_space_2 = True
 
 
 
 ## Problem 5
-is_it_a_vector_space_3 = ...
-is_it_a_vector_space_4 = ...
+is_it_a_vector_space_3 = False
+is_it_a_vector_space_4 = True
 
 
 ## Problem 6
