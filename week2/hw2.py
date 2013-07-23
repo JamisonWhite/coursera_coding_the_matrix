@@ -114,37 +114,42 @@ def GF2_span(D, L):
     >>> Vec(D, {x:one for x in D}) in GF2_span(D, L)
     True
     '''
+    permutations = [[a, b, c] for a in (0,one) for b in (0,one) for c in (0,one)]
+    print('perm', permutations)
+
+    d = list(D)
+    for p in permutations:
+        # print(p)
+        f = {d[i]:p[i] for i in range(3)}
+        # print(f)
+        v = Vec(D, f)
+        # print(v)
+        for l in L:
+            v2 = v*l
+            print('v\n', v)
+            print('l\n', l)
+            print('v*l\n', v2)
+
     vectors = []
-    for l in L:
-        v = Vec(D, {}) * one
-        vectors.append(v)
-
     return vectors
-# for a in (0,1):
-#     for b in (0,1):
-#         for c in (0,1):
-#             y = [a, b, c]
-
-
-
 
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
 
-print('z...')
-z = [[a, b, c] for a in (0,1) for b in (0,1) for c in (0,1)]
-print(z)
-
-print('testing...')
-x = (0,1)
-y = 3
-z = [[a, b, c] for a in x for b in x for c in x ]
-print(z)
+# print('z...')
+# z = [[a, b, c] for a in (0,1) for b in (0,1) for c in (0,1)]
+# print(z)
+#
+# print('testing...')
+# x = (0,1)
+# y = 3
+# z = [[a, b, c] for a in x for b in x for c in x ]
+# print(z)
 
 print('Starting Problem 3\n D = ', D, '\n L = ', L)
 a = len(GF2_span(D, L))
-print(a) #4
-
+print('a = ', a) #4
+exit()
 
 b = Vec(D, {}) in GF2_span(D, L)
 print(b) #True
