@@ -131,30 +131,36 @@ def GF2_span(D, L):
     >>> Vec(D, {x:one for x in D}) in GF2_span(D, L)
     True
     '''
-    permutations = [[a, b, c] for a in (0,one) for b in (0,one) for c in (0,one)]
+    permutations = [[a, b] for a in (0,one) for b in (0,one)]
     # print('permutations: ', permutations)
 
     span = []
     d = list(D)
     for p in permutations:
-        # print(p)
-        f = {d[i]:p[i] for i in range(3)}
-        # print(f)
-        v = Vec(D, f)
-        # print(v)
-        for l in L:
-            v2 = v*l
-            if v2 == one: span.append(v)
-            # print('******************')
-            # print(v)
-            # print(l)
-            # print('\n******************')
-            # print('v*l = ', v2)
-            # print('******************')
-            # print('\n\n')
+        x = sum([v for v in L for c in p if c == one])
+        print('perm = ', p, 'x = ', x)
+        span.append(p)
 
-    # print('span = ', span)
     return span
+
+    # # print(p)
+    # f = {d[i]:p[i] for i in range(3)}
+    # # print(f)
+    # v = Vec(D, f)
+    # # print(v)
+    # for l in L:
+    #     v2 = v*l
+    #     if v2 == one: span.append(v)
+    #     # print('******************')
+    #     # print(v)
+    #     # print(l)
+    #     # print('\n******************')
+    #     # print('v*l = ', v2)
+    #     # print('******************')
+    #     # print('\n\n')
+    #
+    # # print('span = ', span)
+    # return span
 
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
