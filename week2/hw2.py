@@ -126,9 +126,13 @@ def GF2_span(D, L):
         # print(v)
         for l in L:
             v2 = v*l
-            print('v\n', v)
-            print('l\n', l)
-            print('v*l\n', v2)
+            print('******************')
+            print(v)
+            print(l)
+            print('\n******************')
+            print('v*l = ', v2)
+            print('******************')
+            print('\n\n')
 
     vectors = []
     return vectors
