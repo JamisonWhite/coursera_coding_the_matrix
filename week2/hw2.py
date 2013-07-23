@@ -3,12 +3,16 @@
 
 from vec import Vec
 from GF2 import one
-
+from vecutil import *
 
 
 ## Problem 1
 def vec_select(veclist, k): 
     '''
+    Write and test a procedurevecselectusing a comprehension for the following computational problem:
+ input: a listveclistof vectors over the same domain, and an elementkof the domain
+ output:the sublist ofveclistconsisting of the vectorsvin veclistwherev[k]is zero
+
     >>> D = {'a','b','c'}
     >>> v1 = Vec(D, {'a': 1})
     >>> v2 = Vec(D, {'a': 0, 'b': 1})
@@ -35,6 +39,10 @@ def vec_select(veclist, k):
 
 def vec_sum(veclist, D): 
     '''
+    Write and test a procedurevecsumusing the built-in proceduresum()for the following:
+ input: a listveclistof vectors, and a setDthat is the common domain of these vectors
+ output:the vector sum of the vectors in veclist.
+
     >>> D = {'a','b','c'}
     >>> v1 = Vec(D, {'a': 1})
     >>> v2 = Vec(D, {'a': 0, 'b': 1})
@@ -62,6 +70,10 @@ def vec_sum(veclist, D):
 
 def vec_select_sum(veclist, k, D): 
     '''
+    Put your procedures together to obtain a procedurevecselectsumfor the following:
+ input: a setD, a list veclistof vectors with domainD, and an element kof the domain
+ output:the sum of all vectors vin veclistwherev[k]is zero
+
     >>> D = {'a','b','c'}
     >>> v1 = Vec(D, {'a': 1})
     >>> v2 = Vec(D, {'a': 0, 'b': 1})
@@ -76,6 +88,11 @@ def vec_select_sum(veclist, k, D):
 ## Problem 2
 def scale_vecs(vecdict):
     '''
+    Write and test a procedurescalevecs(vecdict)for the following:
+ input: A dictionaryvecdictmapping positive numbers to vectors (instances ofVec)
+ output: a list of vectors, one for each item invecdict. If vecdictcontains a keykmapping to a
+vectorv, the output should contain the vector (1=k)v
+
     >>> v1 = Vec({1,2,3}, {2: 9})
     >>> v2 = Vec({1,2,4}, {1: 1, 2: 2, 4: 8})
     >>> scale_vecs({3: v1, 5: v2}) == [Vec({1,2,3},{2: 3.0}), Vec({1,2,4},{1: 0.2, 2: 0.4, 4: 1.6})]
@@ -115,8 +132,9 @@ def GF2_span(D, L):
     True
     '''
     permutations = [[a, b, c] for a in (0,one) for b in (0,one) for c in (0,one)]
-    print('perm', permutations)
+    # print('permutations: ', permutations)
 
+    span = []
     d = list(D)
     for p in permutations:
         # print(p)
@@ -126,16 +144,17 @@ def GF2_span(D, L):
         # print(v)
         for l in L:
             v2 = v*l
-            print('******************')
-            print(v)
-            print(l)
-            print('\n******************')
-            print('v*l = ', v2)
-            print('******************')
-            print('\n\n')
+            if v2 == one: span.append(v)
+            # print('******************')
+            # print(v)
+            # print(l)
+            # print('\n******************')
+            # print('v*l = ', v2)
+            # print('******************')
+            # print('\n\n')
 
-    vectors = []
-    return vectors
+    # print('span = ', span)
+    return span
 
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
@@ -151,19 +170,22 @@ L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
 # print(z)
 
 print('Starting Problem 3\n D = ', D, '\n L = ', L)
+
+span = GF2_span(D, L)
+print('span = ', span)
+
 a = len(GF2_span(D, L))
 print('a = ', a) #4
-exit()
-
 b = Vec(D, {}) in GF2_span(D, L)
-print(b) #True
+print('b = ', b) #True
 c = Vec(D, {'b': one}) in GF2_span(D, L)
-print(c) #True
+print('c = ', c) #True
 d = Vec(D, {'a':one, 'c':one}) in GF2_span(D, L)
-print(d) #True
+print('d = ', d) #True
 e = Vec(D, {x:one for x in D}) in GF2_span(D, L)
-print(e) #True
+print('e = ', e) #True
 
+exit()
 ## Problem 4
 # Answer with a boolean, please.
 
