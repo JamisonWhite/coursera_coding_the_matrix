@@ -134,8 +134,13 @@ def GF2_span(D, L):
     if len(L)==0:
         return [ Vec(D,{}) ]
     sub = GF2_span(D,L[1:])
-    subsub = [ item+L[0] for item in sub ]
-    return sub+subsub
+    print('\n\n************************************')
+    print('\nL[0]', L[0])
+    print('\nsub\n', sub)
+    subsub = [ item+L[0] for item in sub ] #vector + vector
+    print('\nsubsub\n', subsub)
+    print('\nsub+subsub\n', sub+subsub)
+    return sub+subsub # list + list
 
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
@@ -143,7 +148,9 @@ L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
 print('Starting Problem 3\n D = ', D, '\n L = ', L)
 
 span = GF2_span(D, L)
-print('span = ', span)
+print('\nspan = ', span)
+exit()
+
 
 a = len(GF2_span(D, L))
 print('a = ', a) #4
