@@ -136,51 +136,9 @@ def GF2_span(D, L):
     sub = GF2_span(D,L[1:])
     subsub = [ item+L[0] for item in sub ]
     return sub+subsub
-    #
-    #
-    # permutations = [[a, b] for a in (0,one) for b in (0,one)]
-    # # print('permutations: ', permutations)
-    #
-    # span = []
-    # d = list(D)
-    # for p in permutations:
-    #     x = sum([v for v in L for c in p if c == one])
-    #     print('perm = ', p, 'x = ', x)
-    #     span.append(p)
-    #
-    # return span
-
-    # # print(p)
-    # f = {d[i]:p[i] for i in range(3)}
-    # # print(f)
-    # v = Vec(D, f)
-    # # print(v)
-    # for l in L:
-    #     v2 = v*l
-    #     if v2 == one: span.append(v)
-    #     # print('******************')
-    #     # print(v)
-    #     # print(l)
-    #     # print('\n******************')
-    #     # print('v*l = ', v2)
-    #     # print('******************')
-    #     # print('\n\n')
-    #
-    # # print('span = ', span)
-    # return span
 
 D = {'a', 'b', 'c'}
 L = [Vec(D, {'a': one, 'c': one}), Vec(D, {'b': one})]
-
-# print('z...')
-# z = [[a, b, c] for a in (0,1) for b in (0,1) for c in (0,1)]
-# print(z)
-#
-# print('testing...')
-# x = (0,1)
-# y = 3
-# z = [[a, b, c] for a in x for b in x for c in x ]
-# print(z)
 
 print('Starting Problem 3\n D = ', D, '\n L = ', L)
 
@@ -200,18 +158,37 @@ print('e = ', e) #True
 
 ## Problem 4
 # Answer with a boolean, please.
-
 is_it_a_vector_space_1 = True
-is_it_a_vector_space_2 = True
-
+is_it_a_vector_space_2 = False
 
 
 ## Problem 5
-is_it_a_vector_space_3 = False
-is_it_a_vector_space_4 = True
+is_it_a_vector_space_3 = True
+is_it_a_vector_space_4 = False
+"""
+1,0,1,1,0
+True because anything that satisfies conditions
+can be added and result still satisfies.
 
+1,0,1,1,0
+1,1,1,1,0
+1,0,1,1,1
+False because adding the first two does not satisfy the conditions.
+"""
 
 ## Problem 6
+is_it_a_vector_space_5 = True
+is_it_a_vector_space_6 = False
+"""
+1,1,0,0,0
+1,1,1,1,0
+True because two vectors that satisfy condition can be added and
+still satisfy condition.
 
-is_it_a_vector_space_5 = ...
-is_it_a_vector_space_6 = ...
+1,0,0,0,0
+1,1,1,0,0
+1,1,1,1,1
+False because two vectors that satisfy condition can be added and
+result does not satisfy condition.
+
+"""
