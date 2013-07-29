@@ -78,24 +78,24 @@ part_7_number_cols = 3
 ## Problem 6
 # Please represent your answer as a list of row lists.
 
-small_mat_mult_1 = [[21, 15], [8, 14]]
+small_mat_mult_1 = [ [8, 31], [8, 14]]
 small_mat_mult_2 = [[24, 11, 4], [1, 3, 0]]
-small_mat_mult_3 = [[2, 13]]
+small_mat_mult_3 = [[3, 13]]
 small_mat_mult_4 = [[14]]
-small_mat_mult_5 = [[1,2,3],[2,4,6],[3,6,9]]
-small_mat_mult_6 = [[2,6], [1,3], [1,-5]]
+small_mat_mult_5 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
+small_mat_mult_6 = [[2, 6], [1, 3], [1, -5]]
 
 
 
 ## Problem 7
 # Please represent your solution as a list of row lists.
-A = \
-[
-    [2, 0, 1, 5],
-    [1, -4, 6, 2],
-    [3, 0, -4, 2],
-    [3, 4, 0, -2]
-]
+# A = \
+# [
+#     [2, 0, 1, 5],
+#     [1, -4, 6, 2],
+#     [3, 0, -4, 2],
+#     [3, 4, 0, -2]
+# ]
 part_1_AB = \
 [
     [5,2,0,1],
@@ -151,8 +151,8 @@ part_3_BA =  \
 
 matrix_matrix_mult_1    = \
 [
-    [1, 'b+a'],
-    [1, 1]
+    [1, 'a+b'],
+    [0, 1]
 ]
 matrix_matrix_mult_2_A2 = \
 [
@@ -196,7 +196,7 @@ your_answer_b_AB = \
     [0,2,-1,0],
     [0,5,3,0],
     [0,4,0,0],
-    [0,6,5,0]
+    [0,6,-5,0]
 ]
 your_answer_b_BA = \
 [
@@ -271,13 +271,13 @@ your_answer_f_BA = \
 ## Problem 10
 column_row_vector_multiplication1 = Vec({0, 1}, {0:13, 1:20})
 
-column_row_vector_multiplication2 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication2 = Vec({0, 1, 2}, {0:24, 1:11, 2:4})
 
-column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {...})
+column_row_vector_multiplication3 = Vec({0, 1, 2, 3}, {0:4, 1:8, 2:11, 3:3})
 
-column_row_vector_multiplication4 = Vec({0,1}, {...})
+column_row_vector_multiplication4 = Vec({0,1}, {0:30, 1:16})
 
-column_row_vector_multiplication5 = Vec({0, 1, 2}, {...})
+column_row_vector_multiplication5 = Vec({0, 1, 2}, {0:-3, 1:1, 2:9})
 
 
 

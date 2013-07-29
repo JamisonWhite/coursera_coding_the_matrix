@@ -96,7 +96,7 @@ test_vars['line_contains_substr'] = line_contains_substr
 base_url = '://class.coursera.org/%s/assignment/' % URL
 protocol = 'https'
 colorize = False
-verbose  = False
+verbose  = True
 
 class ModifiedDocTestRunner(doctest.DocTestRunner):
     def __init__(self, *args, **kwargs):
@@ -256,7 +256,7 @@ if __name__ == '__main__':
     group.add_argument('--http',  dest="protocol", const="http",  action="store_const", help=helps[-1])
     args = parser.parse_args()
     if args.protocol: protocol = args.protocol
-    colorize = args.colorize
-    verbose = args.verbose
+    colorize = True # args.colorize
+    verbose = False #args.verbose
     submit(','.join(args.tasks), args.email, args.password)
 
