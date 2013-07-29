@@ -70,11 +70,15 @@ B = listlist2mat([[1], [2], [0]])
 print(A)
 print(B)
 
-D = A.D
-for r in D[0]:
-    for c in D[1]:
-        print(r, c)
+AB = Mat(A.D, {})
 
+D = A.D
+for r in A.D[0]:
+    rc = 0
+    for c in B.D[0]:
+        rc = rc + A[r, c] * B[c, r]
+        print(r, c)
+    print('rc=', rc)
 
 
 
