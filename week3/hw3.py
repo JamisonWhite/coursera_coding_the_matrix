@@ -8,9 +8,9 @@ from vec import Vec
 
 ## Problem 1
 # Please represent your solutions as lists.
-vector_matrix_product_1 = ...
-vector_matrix_product_2 = ...
-vector_matrix_product_3 = ... 
+vector_matrix_product_1 = [1, 0]
+vector_matrix_product_2 = [0, 4.44]
+vector_matrix_product_3 = [14, 20, 26]
 
 
 
@@ -18,17 +18,25 @@ vector_matrix_product_3 = ...
 # Represent your solution as a list of rows.
 # For example, the identity matrix would be [[1,0],[0,1]].
 
-M_swap_two_vector = ...
+M_swap_two_vector = [[0, 1], [1, 0]]
 
 
 
 ## Problem 3
-three_by_three_matrix = ... # Represent with a list of rows lists.
+three_by_three_matrix = \
+    [[1, 0, 1],
+     [0, 1, 0],
+     [1, 0, 0]]
+# Represent with a list of rows lists.
 
 
 
 ## Problem 4
-multiplied_matrix = ... # Represent with a list of row lists.
+multiplied_matrix = \
+    [[2, 0, 0],
+     [0, 4, 0],
+     [0, 0, 3]]
+      # Represent with a list of row lists.
 
 
 
