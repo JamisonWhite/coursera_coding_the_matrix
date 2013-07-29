@@ -44,6 +44,16 @@ if False:
     print("\nMatrix to column dictionary")
     print(mat2coldict(m))
 
+# Transpose matrix
+# my implmentation; forgot about items
+# def transpose0(M): return Mat((M.D[1], M.D[0]), {(j, i):M.f[i, j] for j in M.D[1] for i in M.D[0]})
+def transpose(M): return Mat((M.D[1], M.D[0]), {(j, i):v for (i, j), v in M.f.items()})
+
+if False:
+    print("\nTranspose")
+    t = transpose(m)
+    print(t)
+
 
 
 
