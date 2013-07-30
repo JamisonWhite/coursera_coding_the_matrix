@@ -3,7 +3,7 @@
 
 from mat import Mat
 from vec import Vec
-
+from vecutil import *
 
 
 ## Problem 1
@@ -280,19 +280,21 @@ column_row_vector_multiplication4 = Vec({0,1}, {0:30, 1:16})
 column_row_vector_multiplication5 = Vec({0, 1, 2}, {0:-3, 1:1, 2:9})
 
 
-
 ## Problem 11
 def lin_comb_mat_vec_mult(M, v):
     assert(M.D[1] == v.D)
-    pass
-
-
+    from matutil import mat2coldict
+    m = mat2coldict(M)
+    y = sum([v[d] * m[d] for d in v.D])
+    return y
 
 ## Problem 12
 def lin_comb_vec_mat_mult(v, M):
     assert(v.D == M.D[0])
-    pass
-
+    from matutil import mat2coldict
+    m = mat2coldict(M)
+    y = {d:v * m[d] for d in m.keys()}
+    return Vec(m.keys(), y)
 
 
 ## Problem 13
