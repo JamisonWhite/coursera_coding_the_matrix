@@ -285,31 +285,30 @@ def lin_comb_mat_vec_mult(M, v):
     assert(M.D[1] == v.D)
     from matutil import mat2coldict
     m = mat2coldict(M)
-    y = sum([v[d] * m[d] for d in v.D])
+    y = sum([v[c]*m[c] for c in m.D[1]])
     return y
 
 ## Problem 12
 def lin_comb_vec_mat_mult(v, M):
     assert(v.D == M.D[0])
-    from matutil import mat2coldict
-    m = mat2coldict(M)
-    y = {d:v * m[d] for d in m.keys()}
-    return Vec(m.keys(), y)
+    from matutil import mat2rowdict
+    m = mat2rowdict(M)
+    return sum([v[r]*m[r] for r in M.D[0]])
 
 
 ## Problem 13
 def dot_product_mat_vec_mult(M, v):
     assert(M.D[1] == v.D)
-    pass
-
-
+    from matutil import mat2rowdict
+    m = mat2rowdict(M)
+    return Vec(M.D[0], {mk:mv*v for (mk, mv) in m.items()})
 
 ## Problem 14
 def dot_product_vec_mat_mult(v, M):
     assert(v.D == M.D[0])
-    pass
-
-
+    from matutil import mat2coldict
+    m = mat2coldict(M)
+    return Vec(M.D[1], {mk:v*mv for (mk, mv) in m.items()})
 
 ## Problem 15
 def Mv_mat_mat_mult(A, B):

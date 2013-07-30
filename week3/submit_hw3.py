@@ -257,6 +257,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if args.protocol: protocol = args.protocol
     colorize = True # args.colorize
-    verbose = True #args.verbose
+    verbose = False #args.verbose
     submit(','.join(args.tasks), args.email, args.password)
 
