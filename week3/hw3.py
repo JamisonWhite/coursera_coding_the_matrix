@@ -78,12 +78,12 @@ part_7_number_cols = 3
 ## Problem 6
 # Please represent your answer as a list of row lists.
 
-small_mat_mult_1 = [ [8, 31], [8, 14]]
+small_mat_mult_1 = [ [8, 13], [8, 14]]
 small_mat_mult_2 = [[24, 11, 4], [1, 3, 0]]
 small_mat_mult_3 = [[3, 13]]
 small_mat_mult_4 = [[14]]
 small_mat_mult_5 = [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
-small_mat_mult_6 = [[2, 6], [1, 3], [1, -5]]
+small_mat_mult_6 = [[-2, 4], [1, 1], [1, -3]]
 
 
 
@@ -140,6 +140,17 @@ part_3_BA =  \
     [2,0,1,5],
     [3,4,0,-2]
 ]
+
+
+
+# part_1_AB = [[5,2,0,1],[2,1,-4,6],[2,3,0,-4],[-2,3,4,0]]
+# part_1_BA = [[1,-4,6,2],[3,0,-4,2],[3,4,0,-2],[2,0,1,5]]
+#
+# part_2_AB = [[5,1,0,2],[2,6,-4,1],[2,-4,0,3],[-2,0,4,3]]
+# part_2_BA = [[3,4,0,-2],[3,0,-4,2],[1,-4,6,2],[2,0,1,5]]
+#
+# part_3_AB = [[1,0,5,2],[6,-4,2,1],[-4,0,2,3],[0,4,-2,3]]
+# part_3_BA = [[3,4,0,-2],[1,-4,6,2],[2,0,1,5],[3,0,-4,2]]
 
 
 
@@ -313,8 +324,12 @@ def dot_product_vec_mat_mult(v, M):
 ## Problem 15
 def Mv_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
-
+    from matutil import mat2rowdict
+    a = mat2rowdict(A)
+    from matutil import mat2coldict
+    b = mat2coldict(B)
+    m = Mat((A.D[0], B.D[1]), {(r, c):a[r] * b[c] for r in A.D[0] for c in B.D[1]})
+    return m
 
 
 ## Problem 16
@@ -327,7 +342,13 @@ def vM_mat_mat_mult(A, B):
 ## Problem 17
 def dot_prod_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
+    from matutil import mat2rowdict
+    a = mat2rowdict(A)
+    from matutil import mat2coldict
+    b = mat2coldict(B)
+    m = Mat((A.D[0], B.D[1]), {(r, c):a[r] * b[c] for r in A.D[0] for c in B.D[1]})
+    return m
+
 
 
 
