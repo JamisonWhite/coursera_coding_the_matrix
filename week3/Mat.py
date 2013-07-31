@@ -64,6 +64,8 @@ def matrix_matrix_mul(A, B):
     "Returns the product of A and B"
     assert A.D[1] == B.D[0]
 
+    # (AB)_ij = sum(A_ik * B_kj)
+
     from matutil import mat2rowdict
     a = mat2rowdict(A)
 
@@ -74,7 +76,7 @@ def matrix_matrix_mul(A, B):
     # print(b)
     # print({(r, c):a[c] * b[c] for r in A.D[0] for c in B.D[1]})
 
-    x = Mat((A.D[0], B.D[1]), {(r, c):a[c] * b[c] for r in A.D[0] for c in B.D[1]})
+    x = Mat((A.D[0], B.D[1]), {(r, c):a[r] * b[c] for r in A.D[0] for c in B.D[1]})
 
     return x
 
