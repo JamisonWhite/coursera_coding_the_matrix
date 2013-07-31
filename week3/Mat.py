@@ -16,35 +16,67 @@ def setitem(M, k, val):
 def add(A, B):
     "Returns the sum of A and B"
     assert A.D == B.D
-    pass
+    # AB = Mat(A.D, {d:A[d[0], d[1]] + B[d[0], d[1]] for d in A.D})
+    AB = Mat(A.D, {(r, c):A[r, c] + B[r, c] for r in A.D[0] for c in A.D[1]})
+    return AB
 
 def scalar_mul(M, alpha):
-    "Returns the product of scalar alpha with M" 
-    pass
+    "Returns the product of scalar alpha with M"
+    m = Mat(M.D, {(r, c):alpha * M[r, c] for r in M.D[0] for c in M.D[1]})
+    return m
 
 def equal(A, B):
     "Returns true iff A is equal to B"
     assert A.D == B.D
-    pass
+    x = not any([(r, c) for r in A.D[0] for c in A.D[1] if A[r,c] != B[r, c]])
+    return x
 
 def transpose(M):
     "Returns the transpose of M"
-    pass
+    return Mat((M.D[1], M.D[0]), {(c, r):m for (r, c), m in M.f.items()})
+
+
+def dot_product_vec_mat_mult(v, M):
+    assert(v.D == M.D[0])
+    from matutil import mat2coldict
+    m = mat2coldict(M)
+    return Vec(M.D[1], {mk:v * mv for (mk, mv) in m.items()})
 
 def vector_matrix_mul(v, M):
     "Returns the product of vector v and matrix M"
     assert M.D[0] == v.D
-    pass
+    return dot_product_vec_mat_mult(v, M)
+
+def dot_product_mat_vec_mult(M, v):
+    assert(M.D[1] == v.D)
+    from matutil import mat2rowdict
+    m = mat2rowdict(M)
+    return Vec(M.D[0], {mk:mv*v for (mk, mv) in m.items()})
 
 def matrix_vector_mul(M, v):
     "Returns the product of matrix M and vector v"
     assert M.D[1] == v.D
-    pass
+    return dot_product_mat_vec_mult(M, v)
+
+
 
 def matrix_matrix_mul(A, B):
     "Returns the product of A and B"
     assert A.D[1] == B.D[0]
-    pass
+
+    from matutil import mat2rowdict
+    a = mat2rowdict(A)
+
+    from matutil import mat2coldict
+    b = mat2coldict(B)
+
+    # print(a)
+    # print(b)
+    # print({(r, c):a[c] * b[c] for r in A.D[0] for c in B.D[1]})
+
+    x = Mat((A.D[0], B.D[1]), {(r, c):a[c] * b[c] for r in A.D[0] for c in B.D[1]})
+
+    return x
 
 ################################################################################
 
