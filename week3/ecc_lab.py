@@ -2,26 +2,62 @@ from vec import Vec
 from mat import Mat
 from bitutil import noise
 from GF2 import one
+from matutil import *
+from vecutil import *
+
 
 ## Task 1 part 1
 """ Create an instance of Mat representing the generator matrix G. You can use
 the procedure listlist2mat in the matutil module (be sure to import first).
 Since we are working over GF (2), you should use the value one from the
 GF2 module to represent 1"""
-G = None
+G = listlist2mat(
+[
+    [one, 0, one, one],
+    [one, one, 0, one],
+    [0, 0, 0, one],
+    [one, one, one, 0],
+    [0, 0, one, 0],
+    [0, one, 0, 0],
+    [one, 0, 0, 0]
+])
 
 ## Task 1 part 2
 # Please write your answer as a list. Use one from GF2 and 0 as the elements.
-encoding_1001 = None
+p = listlist2mat([[one], [0], [0], [one]])
+encoding_1001 = G * p
+
+q = list2vec([1, 0, 0, 1])
+encoding_1001_2 = G * q
+
+
+# print('\nG = ', G)
+# print('\n1001 = ', p)
+print('\nencoding_1001   = ', encoding_1001)
+print('\nencoding_1001_2 = ', encoding_1001_2)
+# exit()
 
 
 ## Task 2
 # Express your answer as an instance of the Mat class.
-R = None
+R = listlist2mat(
+    [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0]
+    ]
+)
 
 ## Task 3
 # Create an instance of Mat representing the check matrix H.
-H = None
+H = listlist2mat(
+    [
+        [0, 0, 0, one, one, one, one],
+        [0, one, one, 0, 0, one, one],
+        [one, 0, one, 0, one, 0, one]
+    ]
+)
 
 ## Task 4 part 1
 def find_error(e):
@@ -36,7 +72,7 @@ def find_error(e):
         >>> find_error(Vec({0,1,2}, {1:one, 2:one}))
         Vec({0, 1, 2, 3, 4, 5, 6},{2: one})    
     """
-    pass
+    return e * H
 
 ## Task 4 part 2
 # Use the Vec class for your answers.

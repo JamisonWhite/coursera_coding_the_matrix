@@ -162,11 +162,11 @@ def submit(parts_string, login, password):
 
 
 def login_prompt():
-    return input('Login email address: ')
+    return 'robertjamisonwhite@gmail.com' #input('Login email address: ')
 
 
 def password_prompt():
-    return input("One-time password from the assignment page (NOT your own account's password): ")
+    return 'mm7nnBFkKC' #input("One-time password from the assignment page (NOT your own account's password): ")
 
 
 def parts_prompt():
