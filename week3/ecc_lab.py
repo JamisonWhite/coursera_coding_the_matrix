@@ -27,27 +27,36 @@ G = listlist2mat(
 p = listlist2mat([[one], [0], [0], [one]])
 encoding_1001 = G * p
 
-q = list2vec([1, 0, 0, 1])
-encoding_1001_2 = G * q
 
-
-# print('\nG = ', G)
-# print('\n1001 = ', p)
-print('\nencoding_1001   = ', encoding_1001)
-print('\nencoding_1001_2 = ', encoding_1001_2)
-# exit()
+if False:
+    print('\nG = ', G)
+    print('\n1001 = ', p)
+    print('\nencoding_1001   = ', encoding_1001)
+    exit()
 
 
 ## Task 2
 # Express your answer as an instance of the Mat class.
 R = listlist2mat(
     [
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0]
+        [0, 0, 0, 0, 0, 0, one],
+        [0, 0, 0, 0, 0, one, 0],
+        [0, 0, 0, 0, one, 0, 0],
+        [0, 0, one, 0, 0, 0, 0]
     ]
 )
+
+if False:
+    p = listlist2mat([[one], [0], [one], [one]])
+    encoding_1011 = G * p
+    print('\nR = ', R)
+    print('\nencoding_1011 = ', encoding_1011)
+    print('\nR*c = ', R*encoding_1011)
+    print('\nR*(G*p) = ', R*G*p)
+    print('\nR*G = ', R*G)
+    print('\nG*R = ', G*R)
+    #exit()
+
 
 ## Task 3
 # Create an instance of Mat representing the check matrix H.
@@ -58,6 +67,9 @@ H = listlist2mat(
         [one, 0, one, 0, one, 0, one]
     ]
 )
+
+if True:
+    print('\nH*G = ', H*G)
 
 ## Task 4 part 1
 def find_error(e):

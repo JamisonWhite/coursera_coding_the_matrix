@@ -280,19 +280,19 @@ def dot_product_vec_mat_mult(v, M):
 ## Problem 15
 def Mv_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    from matutil import mat2rowdict
-    a = mat2rowdict(A)
-    from matutil import mat2coldict
+    from matutil import mat2coldict, coldict2mat
     b = mat2coldict(B)
-    m = Mat((A.D[0], B.D[1]), {(r, c):a[r] * b[c] for r in A.D[0] for c in B.D[1]})
-    return m
+    return coldict2mat({k:A*v for (k, v) in b.items()})
+
 
 
 ## Problem 16
 def vM_mat_mat_mult(A, B):
     assert A.D[1] == B.D[0]
-    pass
-
+    from matutil import mat2rowdict, rowdict2mat
+    a = mat2rowdict(A)
+    m = rowdict2mat({k:v*B for (k, v) in a.items()})
+    return m
 
 
 ## Problem 17
