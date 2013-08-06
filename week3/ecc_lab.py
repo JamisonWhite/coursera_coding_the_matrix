@@ -93,6 +93,10 @@ error_vector = Vec(..., ...)
 code_word = Vec(..., ...)
 original = ... # R * code_word
 
+if True:
+
+    print('\nH*~c = ', H*non_codeword)
+
 
 ## Task 5
 def find_error_matrix(S):
