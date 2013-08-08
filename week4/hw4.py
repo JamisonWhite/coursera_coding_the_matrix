@@ -24,11 +24,15 @@ rep_3 = [0, 1, -1]
 ## Problem 2
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
+# lin_comb_coefficients_1 = [18, 4, 11]
+# lin_comb_coefficients_2 = [6, 1, 4]
+# lin_comb_coefficients_3 = [20, 3, 15]
+# lin_comb_coefficients_4 = [6, 1, 3]
 
-lin_comb_coefficients_1 = [18, 4, 11]
-lin_comb_coefficients_2 = [6, 1, 4]
-lin_comb_coefficients_3 = [20, 3, 15]
-lin_comb_coefficients_4 = [6, 1, 3]
+lin_comb_coefficients_1 = [3, -1, 1]
+lin_comb_coefficients_2 = [0.5, -1.5, 1]
+lin_comb_coefficients_3 = [0.5, -5.5, 4]
+lin_comb_coefficients_4 = [1, -2, 1]
 
 
 
@@ -37,9 +41,9 @@ lin_comb_coefficients_4 = [6, 1, 3]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-gf2_rep_1 = [...]
-gf2_rep_2 = [...]
-gf2_rep_3 = [...]
+gf2_rep_1 = [one, 0, one, 0]
+gf2_rep_2 = [one, 0, 0, one]
+gf2_rep_3 = [one, one, 0, one]
 
 
 
@@ -48,10 +52,10 @@ gf2_rep_3 = [...]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-gf2_lc_rep_1 = [...]
-gf2_lc_rep_2 = [...]
-gf2_lc_rep_3 = [...]
-gf2_lc_rep_4 = [...]
+gf2_lc_rep_1 = [0,one,0,one,0,one,0,0]
+gf2_lc_rep_2 = [0,0,0,0,0,0,one,one]
+gf2_lc_rep_3 = [0,one,one,one,one,one,0,0]
+gf2_lc_rep_4 = [one,one,one,one,one,0,0,0]
 
 
 
@@ -59,18 +63,18 @@ gf2_lc_rep_4 = [...]
 # For each part, please provide your solution as a list of the coefficients for
 # the generators of V.
 
-lin_dep_R_1 = [...]
-lin_dep_R_2 = [...]
-lin_dep_R_3 = [...]
+lin_dep_R_1 = [-2, 1, 1]
+lin_dep_R_2 = [-4, 1, -4/7]
+lin_dep_R_3 = [-3/10, 0, 0, 1, 3]
 
 
 
 ## Problem 6
 # Please record your solution as a list of coefficients
 
-linear_dep_R_1 = [...]
-linear_dep_R_2 = [...]
-linear_dep_R_3 = [...]
+linear_dep_R_1 = [-1, 1, -3]
+linear_dep_R_2 = [2*sqrt(2), sqrt(2)/pi, 1]
+linear_dep_R_3 = [1,1,1,1,1]
 
 
 
@@ -79,20 +83,20 @@ linear_dep_R_3 = [...]
 # Assign sum_to to the vector that you are expressing as a linear combination
 # of the other two.  Write the name of the vector as a STRING.  i.e. 'u' or 'w'
 
-u = ...
-v = ...
-w = ...
-sum_to = ...
+u = 1
+v = 1
+w = -1
+sum_to = 'u'
 
 
 
 ## Problem 8
 # Please use the Vec class to represent your vectors
 
-indep_vec_1 = Vec({...}, {...})
-indep_vec_2 = Vec({...}, {...})
-indep_vec_3 = Vec({...}, {...})
-indep_vec_4 = Vec({...}, {...})
+indep_vec_1 = Vec({0,1,2}, {0:1})
+indep_vec_2 = Vec({0,1,2}, {1:1})
+indep_vec_3 = Vec({0,1,2}, {2:1})
+indep_vec_4 = Vec({0,1,2}, {0:1, 1:1,2:1})
 
 
 
